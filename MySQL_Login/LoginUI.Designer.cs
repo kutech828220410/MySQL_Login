@@ -107,15 +107,9 @@
             this.sqL_DataGridView_login_data = new SQLUI.SQL_DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.rJ_GroupBox2 = new MyUI.RJ_GroupBox();
-            this.checkBox_login_data_index_Web權限 = new System.Windows.Forms.CheckBox();
-            this.checkBox_login_data_index_Windows權限 = new System.Windows.Forms.CheckBox();
             this.rJ_Button_login_data_index_匯出 = new MyUI.RJ_Button();
             this.rJ_Button_login_data_index_匯入 = new MyUI.RJ_Button();
             this.rJ_Button_login_data_index_寫入 = new MyUI.RJ_Button();
-            this.checkBox_login_data_index_修改 = new System.Windows.Forms.CheckBox();
-            this.checkBox_login_data_index_刪除 = new System.Windows.Forms.CheckBox();
-            this.checkBox_login_data_index_新增 = new System.Windows.Forms.CheckBox();
-            this.checkBox_login_data_index_查詢 = new System.Windows.Forms.CheckBox();
             this.rJ_Lable3 = new MyUI.RJ_Lable();
             this.rJ_TextBox_login_data_index_名稱 = new MyUI.RJ_TextBox();
             this.rJ_Lable2 = new MyUI.RJ_Lable();
@@ -123,11 +117,8 @@
             this.sqL_DataGridView_login_data_index = new SQLUI.SQL_DataGridView();
             this.saveFileDialog_SaveExcel = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog_LoadExcel = new System.Windows.Forms.OpenFileDialog();
-            this.checkBox_login_data_index_group01 = new System.Windows.Forms.CheckBox();
-            this.checkBox_login_data_index_group02 = new System.Windows.Forms.CheckBox();
-            this.checkBox_login_data_index_group03 = new System.Windows.Forms.CheckBox();
-            this.checkBox_login_data_index_group04 = new System.Windows.Forms.CheckBox();
-            this.checkBox_login_data_index_group05 = new System.Windows.Forms.CheckBox();
+            this.comboBox_類別 = new System.Windows.Forms.ComboBox();
+            this.rJ_Lable4 = new MyUI.RJ_Lable();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.rJ_GroupBox1.ContentsPanel.SuspendLayout();
@@ -1178,20 +1169,11 @@
             this.rJ_GroupBox2.ContentsPanel.BorderColor = System.Drawing.Color.SkyBlue;
             this.rJ_GroupBox2.ContentsPanel.BorderRadius = 5;
             this.rJ_GroupBox2.ContentsPanel.BorderSize = 0;
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_group05);
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_group04);
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_group03);
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_group02);
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_group01);
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_Web權限);
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_Windows權限);
+            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_Lable4);
+            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.comboBox_類別);
             this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_Button_login_data_index_匯出);
             this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_Button_login_data_index_匯入);
             this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_Button_login_data_index_寫入);
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_修改);
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_刪除);
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_新增);
-            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.checkBox_login_data_index_查詢);
             this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_Lable3);
             this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_TextBox_login_data_index_名稱);
             this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_Lable2);
@@ -1220,30 +1202,6 @@
             this.rJ_GroupBox2.TitleHeight = 37;
             this.rJ_GroupBox2.TitleTextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rJ_GroupBox2.TitleTexts = "資料內容";
-            // 
-            // checkBox_login_data_index_Web權限
-            // 
-            this.checkBox_login_data_index_Web權限.AutoSize = true;
-            this.checkBox_login_data_index_Web權限.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_Web權限.Location = new System.Drawing.Point(118, 82);
-            this.checkBox_login_data_index_Web權限.Name = "checkBox_login_data_index_Web權限";
-            this.checkBox_login_data_index_Web權限.Size = new System.Drawing.Size(70, 16);
-            this.checkBox_login_data_index_Web權限.TabIndex = 14;
-            this.checkBox_login_data_index_Web權限.Text = "Web權限";
-            this.checkBox_login_data_index_Web權限.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_Web權限.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_Web權限_CheckedChanged);
-            // 
-            // checkBox_login_data_index_Windows權限
-            // 
-            this.checkBox_login_data_index_Windows權限.AutoSize = true;
-            this.checkBox_login_data_index_Windows權限.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_Windows權限.Location = new System.Drawing.Point(20, 82);
-            this.checkBox_login_data_index_Windows權限.Name = "checkBox_login_data_index_Windows權限";
-            this.checkBox_login_data_index_Windows權限.Size = new System.Drawing.Size(92, 16);
-            this.checkBox_login_data_index_Windows權限.TabIndex = 13;
-            this.checkBox_login_data_index_Windows權限.Text = "Windows權限";
-            this.checkBox_login_data_index_Windows權限.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_Windows權限.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_Windows權限_CheckedChanged);
             // 
             // rJ_Button_login_data_index_匯出
             // 
@@ -1310,54 +1268,6 @@
             this.rJ_Button_login_data_index_寫入.TextColor = System.Drawing.Color.White;
             this.rJ_Button_login_data_index_寫入.UseVisualStyleBackColor = false;
             this.rJ_Button_login_data_index_寫入.Click += new System.EventHandler(this.rJ_Button_login_data_index_寫入_Click);
-            // 
-            // checkBox_login_data_index_修改
-            // 
-            this.checkBox_login_data_index_修改.AutoSize = true;
-            this.checkBox_login_data_index_修改.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_修改.Location = new System.Drawing.Point(182, 60);
-            this.checkBox_login_data_index_修改.Name = "checkBox_login_data_index_修改";
-            this.checkBox_login_data_index_修改.Size = new System.Drawing.Size(48, 16);
-            this.checkBox_login_data_index_修改.TabIndex = 9;
-            this.checkBox_login_data_index_修改.Text = "修改";
-            this.checkBox_login_data_index_修改.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_修改.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_修改_CheckedChanged);
-            // 
-            // checkBox_login_data_index_刪除
-            // 
-            this.checkBox_login_data_index_刪除.AutoSize = true;
-            this.checkBox_login_data_index_刪除.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_刪除.Location = new System.Drawing.Point(128, 60);
-            this.checkBox_login_data_index_刪除.Name = "checkBox_login_data_index_刪除";
-            this.checkBox_login_data_index_刪除.Size = new System.Drawing.Size(48, 16);
-            this.checkBox_login_data_index_刪除.TabIndex = 8;
-            this.checkBox_login_data_index_刪除.Text = "刪除";
-            this.checkBox_login_data_index_刪除.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_刪除.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_刪除_CheckedChanged);
-            // 
-            // checkBox_login_data_index_新增
-            // 
-            this.checkBox_login_data_index_新增.AutoSize = true;
-            this.checkBox_login_data_index_新增.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_新增.Location = new System.Drawing.Point(74, 60);
-            this.checkBox_login_data_index_新增.Name = "checkBox_login_data_index_新增";
-            this.checkBox_login_data_index_新增.Size = new System.Drawing.Size(48, 16);
-            this.checkBox_login_data_index_新增.TabIndex = 7;
-            this.checkBox_login_data_index_新增.Text = "新增";
-            this.checkBox_login_data_index_新增.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_新增.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_新增_CheckedChanged);
-            // 
-            // checkBox_login_data_index_查詢
-            // 
-            this.checkBox_login_data_index_查詢.AutoSize = true;
-            this.checkBox_login_data_index_查詢.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_查詢.Location = new System.Drawing.Point(20, 60);
-            this.checkBox_login_data_index_查詢.Name = "checkBox_login_data_index_查詢";
-            this.checkBox_login_data_index_查詢.Size = new System.Drawing.Size(48, 16);
-            this.checkBox_login_data_index_查詢.TabIndex = 6;
-            this.checkBox_login_data_index_查詢.Text = "查詢";
-            this.checkBox_login_data_index_查詢.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_查詢.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_查詢_CheckedChanged);
             // 
             // rJ_Lable3
             // 
@@ -1502,65 +1412,31 @@
             this.openFileDialog_LoadExcel.DefaultExt = "txt";
             this.openFileDialog_LoadExcel.Filter = "txt File (*.txt)|*.txt;";
             // 
-            // checkBox_login_data_index_group01
+            // comboBox_類別
             // 
-            this.checkBox_login_data_index_group01.AutoSize = true;
-            this.checkBox_login_data_index_group01.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_group01.Location = new System.Drawing.Point(268, 60);
-            this.checkBox_login_data_index_group01.Name = "checkBox_login_data_index_group01";
-            this.checkBox_login_data_index_group01.Size = new System.Drawing.Size(64, 16);
-            this.checkBox_login_data_index_group01.TabIndex = 15;
-            this.checkBox_login_data_index_group01.Text = "group01";
-            this.checkBox_login_data_index_group01.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_group01.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_group01_CheckedChanged);
+            this.comboBox_類別.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.comboBox_類別.FormattingEnabled = true;
+            this.comboBox_類別.Location = new System.Drawing.Point(268, 54);
+            this.comboBox_類別.Name = "comboBox_類別";
+            this.comboBox_類別.Size = new System.Drawing.Size(175, 35);
+            this.comboBox_類別.TabIndex = 13;
             // 
-            // checkBox_login_data_index_group02
+            // rJ_Lable4
             // 
-            this.checkBox_login_data_index_group02.AutoSize = true;
-            this.checkBox_login_data_index_group02.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_group02.Location = new System.Drawing.Point(338, 60);
-            this.checkBox_login_data_index_group02.Name = "checkBox_login_data_index_group02";
-            this.checkBox_login_data_index_group02.Size = new System.Drawing.Size(64, 16);
-            this.checkBox_login_data_index_group02.TabIndex = 16;
-            this.checkBox_login_data_index_group02.Text = "group02";
-            this.checkBox_login_data_index_group02.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_group02.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_group02_CheckedChanged);
-            // 
-            // checkBox_login_data_index_group03
-            // 
-            this.checkBox_login_data_index_group03.AutoSize = true;
-            this.checkBox_login_data_index_group03.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_group03.Location = new System.Drawing.Point(408, 60);
-            this.checkBox_login_data_index_group03.Name = "checkBox_login_data_index_group03";
-            this.checkBox_login_data_index_group03.Size = new System.Drawing.Size(64, 16);
-            this.checkBox_login_data_index_group03.TabIndex = 17;
-            this.checkBox_login_data_index_group03.Text = "group03";
-            this.checkBox_login_data_index_group03.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_group03.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_group03_CheckedChanged);
-            // 
-            // checkBox_login_data_index_group04
-            // 
-            this.checkBox_login_data_index_group04.AutoSize = true;
-            this.checkBox_login_data_index_group04.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_group04.Location = new System.Drawing.Point(478, 60);
-            this.checkBox_login_data_index_group04.Name = "checkBox_login_data_index_group04";
-            this.checkBox_login_data_index_group04.Size = new System.Drawing.Size(64, 16);
-            this.checkBox_login_data_index_group04.TabIndex = 18;
-            this.checkBox_login_data_index_group04.Text = "group04";
-            this.checkBox_login_data_index_group04.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_group04.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_group04_CheckedChanged);
-            // 
-            // checkBox_login_data_index_group05
-            // 
-            this.checkBox_login_data_index_group05.AutoSize = true;
-            this.checkBox_login_data_index_group05.ForeColor = System.Drawing.Color.Black;
-            this.checkBox_login_data_index_group05.Location = new System.Drawing.Point(548, 60);
-            this.checkBox_login_data_index_group05.Name = "checkBox_login_data_index_group05";
-            this.checkBox_login_data_index_group05.Size = new System.Drawing.Size(64, 16);
-            this.checkBox_login_data_index_group05.TabIndex = 19;
-            this.checkBox_login_data_index_group05.Text = "group05";
-            this.checkBox_login_data_index_group05.UseVisualStyleBackColor = true;
-            this.checkBox_login_data_index_group05.CheckedChanged += new System.EventHandler(this.checkBox_login_data_index_group05_CheckedChanged);
+            this.rJ_Lable4.BackColor = System.Drawing.Color.SkyBlue;
+            this.rJ_Lable4.BackgroundColor = System.Drawing.Color.SkyBlue;
+            this.rJ_Lable4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rJ_Lable4.BorderRadius = 5;
+            this.rJ_Lable4.BorderSize = 0;
+            this.rJ_Lable4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rJ_Lable4.ForeColor = System.Drawing.Color.White;
+            this.rJ_Lable4.Location = new System.Drawing.Point(180, 55);
+            this.rJ_Lable4.Name = "rJ_Lable4";
+            this.rJ_Lable4.Size = new System.Drawing.Size(82, 32);
+            this.rJ_Lable4.TabIndex = 14;
+            this.rJ_Lable4.Text = "類別";
+            this.rJ_Lable4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rJ_Lable4.TextColor = System.Drawing.Color.White;
             // 
             // LoginUI
             // 
@@ -1578,7 +1454,6 @@
             this.panel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.rJ_GroupBox2.ContentsPanel.ResumeLayout(false);
-            this.rJ_GroupBox2.ContentsPanel.PerformLayout();
             this.rJ_GroupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1669,21 +1544,12 @@
         private MyUI.RJ_Button rJ_Button_login_data_index_匯出;
         private MyUI.RJ_Button rJ_Button_login_data_index_匯入;
         private MyUI.RJ_Button rJ_Button_login_data_index_寫入;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_修改;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_刪除;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_查詢;
         private MyUI.RJ_Lable rJ_Lable3;
         private MyUI.RJ_TextBox rJ_TextBox_login_data_index_名稱;
         private System.Windows.Forms.SaveFileDialog saveFileDialog_SaveExcel;
         private System.Windows.Forms.OpenFileDialog openFileDialog_LoadExcel;
         private MyUI.RJ_Button rJ_Button_login_data_更新;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_Web權限;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_Windows權限;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_新增;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_group05;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_group04;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_group03;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_group02;
-        private System.Windows.Forms.CheckBox checkBox_login_data_index_group01;
+        private MyUI.RJ_Lable rJ_Lable4;
+        private System.Windows.Forms.ComboBox comboBox_類別;
     }
 }

@@ -13,6 +13,17 @@ namespace MySQL_Login
 {
     public class LoginIndex_Pannel : UserControl
     {
+        private List<myCheckBox> myCheckBoxes = new List<myCheckBox>();
+        private class myCheckBox
+        {
+            public myCheckBox(CheckBox CheckBox, int index)
+            {
+                this.CheckBox = CheckBox;
+                this.index = index;
+            }
+            public CheckBox CheckBox = new CheckBox();
+            public int index = -1;
+        }
         private LoginDataWebAPI.Class_login_data Current_class_Login_Data;
         private FlowLayoutPanel panel;
         static private LoginIndex_CheckBox loginIndex_CheckBox = new LoginIndex_CheckBox();
@@ -401,6 +412,13 @@ namespace MySQL_Login
                 for (int i = 0; i < data.Count; i++)
                 {
                     List_LoginIndex_CheckBox[i].Checked = data[i];
+                    for (int k = 0; k < this.myCheckBoxes.Count; k++)
+                    {
+                        if (this.myCheckBoxes[k].index == i)
+                        {
+                            this.myCheckBoxes[k].CheckBox.Checked = data[i];
+                        }
+                    }
                 }
             }));
         }
@@ -412,7 +430,7 @@ namespace MySQL_Login
                 {
                     List_LoginIndex_CheckBox[i].Index = list_Class_login_data_index[i].索引.StringToInt32();
                     List_LoginIndex_CheckBox[i].Text = list_Class_login_data_index[i].Name;
-                    if (list_Class_login_data_index[i].Name == "None" || !list_Class_login_data_index[i].GetTypeBool(enum_login_data_type.windows_permission))
+                    if (list_Class_login_data_index[i].Name == "None")
                     {
                         List_LoginIndex_CheckBox[i].Visible = false;
                     }
@@ -440,6 +458,28 @@ namespace MySQL_Login
                     }
                 }
             }));
+        }
+
+        public void Set_CheckBox(CheckBox checkBox, int index)
+        {
+            if (index >= loginIndex_CheckBoxes.Length) return;
+            myCheckBox myCheckBox = new myCheckBox(checkBox, index);
+            this.myCheckBoxes.Add(myCheckBox);
+            checkBox.CheckStateChanged += (sender, e) =>
+            {
+                CheckBox_CheckStateChanged(sender, e, index, checkBox.Checked);
+            };
+        }
+
+
+        private void CheckBox_CheckStateChanged(object sender, EventArgs e, int index, bool state)
+        {
+
+            this.Invoke(new Action(delegate
+            {
+                loginIndex_CheckBoxes[index].Checked = state;
+            }));
+
         }
         private void Init()
         {

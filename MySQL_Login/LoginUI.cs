@@ -17,18 +17,11 @@ namespace MySQL_Login
 {
     public enum enum_login_data_type
     {
-        view,
-        add,
-        update,
-        delete,
-        windows_permission,
-        web_permission,
-
-        group01 = 10,
-        group02 = 11,
-        group03 = 12,
-        group04 = 13,
-        group05 = 14,
+        調劑台,
+        傳送櫃,
+        藥庫,
+        備藥機,
+        叫號燈,
     }
     public partial class LoginUI : UserControl
     {
@@ -91,6 +84,7 @@ namespace MySQL_Login
         public LoginUI()
         {
             InitializeComponent();
+            this.comboBox_類別.DataSource = new enum_login_data_type().GetEnumNames();
         }     
         public void Set_login_data_DB(SQL_DataGridView.ConnentionClass connentionClass)
         {
@@ -553,18 +547,8 @@ namespace MySQL_Login
             this.Current_login_data_index = RowValue;
             this.rJ_TextBox_login_data_index_索引號.Text = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.索引].ObjectToString();
             this.rJ_TextBox_login_data_index_名稱.Text = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Name].ObjectToString();
-            int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-            this.checkBox_login_data_index_查詢.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.view);
-            this.checkBox_login_data_index_新增.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.add);
-            this.checkBox_login_data_index_刪除.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.delete);
-            this.checkBox_login_data_index_修改.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.update);
-            this.checkBox_login_data_index_Windows權限.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.windows_permission);
-            this.checkBox_login_data_index_Web權限.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.web_permission);
-            this.checkBox_login_data_index_group01.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.group01);
-            this.checkBox_login_data_index_group02.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.group02);
-            this.checkBox_login_data_index_group03.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.group03);
-            this.checkBox_login_data_index_group04.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.group04);
-            this.checkBox_login_data_index_group05.Checked = myConvert.Int32GetBit(TYPE, (int)enum_login_data_type.group05);
+            comboBox_類別.Text = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString();
+        
         }
         private void rJ_TextBox_login_data_index_名稱_TextChanged(object sender, EventArgs e)
         {
@@ -573,113 +557,12 @@ namespace MySQL_Login
                 this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Name] = rJ_TextBox_login_data_index_名稱.Texts;
             }
         }
-        private void checkBox_login_data_index_查詢_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_查詢.Checked, TYPE, (int)enum_login_data_type.view);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-        
-        }
-        private void checkBox_login_data_index_新增_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_新增.Checked, TYPE, (int)enum_login_data_type.add);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-   
-        }
-        private void checkBox_login_data_index_刪除_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_刪除.Checked, TYPE, (int)enum_login_data_type.delete);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-        
-        }
-        private void checkBox_login_data_index_修改_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_修改.Checked, TYPE, (int)enum_login_data_type.update);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-          
-        }
-        private void checkBox_login_data_index_Windows權限_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_Windows權限.Checked, TYPE, (int)enum_login_data_type.windows_permission);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-        }
-        private void checkBox_login_data_index_Web權限_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_Web權限.Checked, TYPE, (int)enum_login_data_type.web_permission);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-        }
-        private void checkBox_login_data_index_group01_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_group01.Checked, TYPE, (int)enum_login_data_type.group01);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-        }
-        private void checkBox_login_data_index_group02_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_group02.Checked, TYPE, (int)enum_login_data_type.group02);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-        }
-        private void checkBox_login_data_index_group03_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_group03.Checked, TYPE, (int)enum_login_data_type.group03);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-        }
-        private void checkBox_login_data_index_group04_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_group04.Checked, TYPE, (int)enum_login_data_type.group04);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-        }
-        private void checkBox_login_data_index_group05_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.Current_login_data_index != null)
-            {
-                int TYPE = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString().StringToInt32();
-                TYPE = myConvert.Int32SetBit(checkBox_login_data_index_group05.Checked, TYPE, (int)enum_login_data_type.group05);
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = TYPE.ToString();
-            }
-        }
+
         private void rJ_Button_login_data_index_寫入_Click(object sender, EventArgs e)
         {
             if(this.Current_login_data_index != null)
             {
+                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = comboBox_類別.Text;
                 this.sqL_DataGridView_login_data_index.SQL_Replace(LoginDataWebAPI.enum_login_data_index.GUID.GetEnumName(), this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.GUID].ObjectToString(), this.Current_login_data_index, true);
             }
      

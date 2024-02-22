@@ -36,7 +36,14 @@ namespace MySQL_Login
 
             public string level { get => _level; set => _level = value; }
             public List<bool> data { get => list_data; set => list_data = value; }
-
+            public Class_login_data()
+            {
+                while (true)
+                {
+                    if (list_data.Count >= 256) break;
+                    list_data.Add(false);
+                }
+            }
             [JsonIgnore]
             public long data01
             {
@@ -133,7 +140,7 @@ namespace MySQL_Login
         {
             List<LoginDataWebAPI.Class_login_data> list_class_Login_Data = new List<Class_login_data>();
             List<object[]> list_value = sQLControl.GetAllRows(null);
-            for(int k = 0; k < list_value.Count; k++)
+            for (int k = 0; k < list_value.Count; k++)
             {
                 LoginDataWebAPI.Class_login_data class_Login_Data = null;
                 class_Login_Data = new LoginDataWebAPI.Class_login_data();
@@ -142,22 +149,22 @@ namespace MySQL_Login
                 long.TryParse(list_value[k][(int)LoginDataWebAPI.enum_login_data.Data01].ObjectToString(), out value);
                 for (int i = 0; i < 64; i++)
                 {
-                    class_Login_Data.data.Add(myConvert.Int64GetBit(value, i));
+                    class_Login_Data.data[i + 0] = myConvert.Int64GetBit(value, i);
                 }
                 long.TryParse(list_value[k][(int)LoginDataWebAPI.enum_login_data.Data02].ObjectToString(), out value);
                 for (int i = 0; i < 64; i++)
                 {
-                    class_Login_Data.data.Add(myConvert.Int64GetBit(value, i));
+                    class_Login_Data.data[i + 64] = myConvert.Int64GetBit(value, i);
                 }
                 long.TryParse(list_value[k][(int)LoginDataWebAPI.enum_login_data.Data03].ObjectToString(), out value);
                 for (int i = 0; i < 64; i++)
                 {
-                    class_Login_Data.data.Add(myConvert.Int64GetBit(value, i));
+                    class_Login_Data.data[i + 128] = myConvert.Int64GetBit(value, i);
                 }
                 long.TryParse(list_value[k][(int)LoginDataWebAPI.enum_login_data.Data04].ObjectToString(), out value);
                 for (int i = 0; i < 64; i++)
                 {
-                    class_Login_Data.data.Add(myConvert.Int64GetBit(value, i));
+                    class_Login_Data.data[i + 192] = myConvert.Int64GetBit(value, i);
                 }
                 list_class_Login_Data.Add(class_Login_Data);
             }
@@ -176,22 +183,22 @@ namespace MySQL_Login
                 long.TryParse(list_value[0][(int)LoginDataWebAPI.enum_login_data.Data01].ObjectToString(), out value);
                 for (int i = 0; i < 64; i++)
                 {
-                    class_Login_Data.data.Add(myConvert.Int64GetBit(value, i));
+                    class_Login_Data.data[i + 0] = myConvert.Int64GetBit(value, i);
                 }
                 long.TryParse(list_value[0][(int)LoginDataWebAPI.enum_login_data.Data02].ObjectToString(), out value);
                 for (int i = 0; i < 64; i++)
                 {
-                    class_Login_Data.data.Add(myConvert.Int64GetBit(value, i));
+                    class_Login_Data.data[i + 64] = myConvert.Int64GetBit(value, i);
                 }
                 long.TryParse(list_value[0][(int)LoginDataWebAPI.enum_login_data.Data03].ObjectToString(), out value);
                 for (int i = 0; i < 64; i++)
                 {
-                    class_Login_Data.data.Add(myConvert.Int64GetBit(value, i));
+                    class_Login_Data.data[i + 128] = myConvert.Int64GetBit(value, i);
                 }
                 long.TryParse(list_value[0][(int)LoginDataWebAPI.enum_login_data.Data04].ObjectToString(), out value);
                 for (int i = 0; i < 64; i++)
                 {
-                    class_Login_Data.data.Add(myConvert.Int64GetBit(value, i));
+                    class_Login_Data.data[i + 192] = myConvert.Int64GetBit(value, i);
                 }
 
             }
