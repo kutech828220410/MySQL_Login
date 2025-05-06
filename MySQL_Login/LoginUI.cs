@@ -525,11 +525,15 @@ namespace MySQL_Login
 
         private void RJ_Button_login_data_index_寫入_MouseDownEvent(MouseEventArgs mevent)
         {
-            if (this.Current_login_data_index != null)
+            this.Invoke(new Action(delegate
             {
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = comboBox_類別.Text;
-                this.sqL_DataGridView_login_data_index.SQL_Replace(LoginDataWebAPI.enum_login_data_index.GUID.GetEnumName(), this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.GUID].ObjectToString(), this.Current_login_data_index, true);
-            }
+                if (this.Current_login_data_index != null)
+                {
+                    this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = comboBox_類別.Text;
+                    this.sqL_DataGridView_login_data_index.SQL_Replace(LoginDataWebAPI.enum_login_data_index.GUID.GetEnumName(), this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.GUID].ObjectToString(), this.Current_login_data_index, true);
+                }
+            }));
+            
         }
         private void RJ_Button_login_data_index_匯入_MouseDownEvent(MouseEventArgs mevent)
         {
