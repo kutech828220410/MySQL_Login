@@ -207,7 +207,9 @@ namespace MySQL_Login
 
             rJ_TextBox_login_data_index_群組._TextChanged += RJ_TextBox_login_data_index_群組__TextChanged;
             rJ_TextBox_login_data_index_描述._TextChanged += RJ_TextBox_login_data_index_描述__TextChanged;
-
+            rJ_Button_login_data_index_匯出.MouseDownEvent += RJ_Button_login_data_index_匯出_MouseDownEvent;
+            rJ_Button_login_data_index_匯入.MouseDownEvent += RJ_Button_login_data_index_匯入_MouseDownEvent;
+            rJ_Button_login_data_index_寫入.MouseDownEvent += RJ_Button_login_data_index_寫入_MouseDownEvent;
         }
 
        
@@ -484,65 +486,7 @@ namespace MySQL_Login
 
         #endregion
         #region login_data_index
-        private void rJ_Button_login_data_index_匯出_Click(object sender, EventArgs e)
-        {
-            if (this.saveFileDialog_SaveExcel.ShowDialog() == DialogResult.OK)
-            {
-                DataTable dataTable = this.sqL_DataGridView_login_data_index.GetDataTable().DeepClone();
-                CSVHelper.SaveFile(dataTable, this.saveFileDialog_SaveExcel.FileName);
-            }
-        }
-        private void rJ_Button_login_data_index_匯入_Click(object sender, EventArgs e)
-        {
-            if (this.openFileDialog_LoadExcel.ShowDialog() == DialogResult.OK)
-            {
-                DataTable dataTable = new DataTable();
-                CSVHelper.LoadFile(this.openFileDialog_LoadExcel.FileName, 0, dataTable);
-                DataTable datatable_buf = dataTable.ReorderTable(new LoginDataWebAPI.enum_login_data_index());
-                if (datatable_buf == null)
-                {
-                    MyMessageBox.ShowDialog("匯入檔案,資料錯誤!");
-                    return;
-                }
-                List<object[]> list_SQL_Value = this.sqL_DataGridView_login_data_index.SQL_GetAllRows(false);
-                List<object[]> list_Add = new List<object[]>();
-                List<object[]> list_Delete_ColumnName = new List<object[]>();
-                List<object[]> list_Delete_SerchValue = new List<object[]>();
-                List<string[]> list_Replace_SerchValue = new List<string[]>();
-                List<object[]> list_Replace_Value = new List<object[]>();
-                List<object[]> list_Value_buf = new List<object[]>();
-                foreach (System.Data.DataRow dr in datatable_buf.Rows)
-                {
-                    object[] src_obj = new string[LoginDataWebAPI.enum_login_data_index.GUID.GetEnumNames().Length];
 
-                    src_obj[(int)LoginDataWebAPI.enum_login_data_index.GUID] = dr[LoginDataWebAPI.enum_login_data_index.GUID.GetEnumName()].ObjectToString();
-                    src_obj[(int)LoginDataWebAPI.enum_login_data_index.Name] = dr[LoginDataWebAPI.enum_login_data_index.Name.GetEnumName()].ObjectToString();
-                    src_obj[(int)LoginDataWebAPI.enum_login_data_index.Type] = dr[LoginDataWebAPI.enum_login_data_index.Type.GetEnumName()].ObjectToString();
-                    src_obj[(int)LoginDataWebAPI.enum_login_data_index.索引] = dr[LoginDataWebAPI.enum_login_data_index.索引.GetEnumName()].ObjectToString();
-                    src_obj[(int)LoginDataWebAPI.enum_login_data_index.Group] = dr[LoginDataWebAPI.enum_login_data_index.Group.GetEnumName()].ObjectToString();
-                    src_obj[(int)LoginDataWebAPI.enum_login_data_index.Description] = dr[LoginDataWebAPI.enum_login_data_index.Description.GetEnumName()].ObjectToString();
-
-                    list_Value_buf = (from value in list_SQL_Value
-                                      where value[(int)LoginDataWebAPI.enum_login_data_index.索引].ObjectToString().StringToInt32() == src_obj[(int)LoginDataWebAPI.enum_login_data_index.索引].ObjectToString().StringToInt32()
-                                      select value).ToList();
-                    if (list_Value_buf.Count == 0)
-                    {
-
-                    }
-                    else
-                    {
-                        list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Name] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Name];
-                        list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Type] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Type];
-                        list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Group] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Group];
-                        list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Description] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Description];
-                        list_Replace_SerchValue.Add((new string[] { list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.GUID].ObjectToString() }));
-                        list_Replace_Value.Add(list_Value_buf[0]);
-                    }
-                }
-                this.sqL_DataGridView_login_data_index.SQL_ReplaceExtra(new string[] { LoginDataWebAPI.enum_login_data_index.GUID.GetEnumName() }, list_Replace_SerchValue, list_Replace_Value, false);
-                this.sqL_DataGridView_login_data_index.SQL_GetAllRows(true);
-            }
-        }
         private void SqL_DataGridView_login_data_index_RowDoubleClickEvent(object[] RowValue)
         {
 
@@ -568,34 +512,98 @@ namespace MySQL_Login
         {
             if (this.Current_login_data_index != null)
             {
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Group] = rJ_TextBox_login_data_index_群組.Texts;
+                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Description] = rJ_TextBox_login_data_index_描述.Texts;
             }
         }
         private void RJ_TextBox_login_data_index_群組__TextChanged(object sender, EventArgs e)
         {
             if (this.Current_login_data_index != null)
             {
-                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Description] = rJ_TextBox_login_data_index_群組.Texts;
+                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Group] = rJ_TextBox_login_data_index_群組.Texts;
             }
         }
-        private void rJ_Button_login_data_index_寫入_Click(object sender, EventArgs e)
+
+        private void RJ_Button_login_data_index_寫入_MouseDownEvent(MouseEventArgs mevent)
         {
-            if(this.Current_login_data_index != null)
+            if (this.Current_login_data_index != null)
             {
                 this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type] = comboBox_類別.Text;
                 this.sqL_DataGridView_login_data_index.SQL_Replace(LoginDataWebAPI.enum_login_data_index.GUID.GetEnumName(), this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.GUID].ObjectToString(), this.Current_login_data_index, true);
             }
-     
+        }
+        private void RJ_Button_login_data_index_匯入_MouseDownEvent(MouseEventArgs mevent)
+        {
+            this.Invoke(new Action(delegate
+            {
+                if (this.openFileDialog_LoadExcel.ShowDialog() == DialogResult.OK)
+                {
+                    DataTable dataTable = new DataTable();
+                    CSVHelper.LoadFile(this.openFileDialog_LoadExcel.FileName, 0, dataTable);
+                    DataTable datatable_buf = dataTable.ReorderTable(new LoginDataWebAPI.enum_login_data_index());
+                    if (datatable_buf == null)
+                    {
+                        MyMessageBox.ShowDialog("匯入檔案,資料錯誤!");
+                        return;
+                    }
+                    List<object[]> list_SQL_Value = this.sqL_DataGridView_login_data_index.SQL_GetAllRows(false);
+                    List<object[]> list_Add = new List<object[]>();
+                    List<object[]> list_Delete_ColumnName = new List<object[]>();
+                    List<object[]> list_Delete_SerchValue = new List<object[]>();
+                    List<string[]> list_Replace_SerchValue = new List<string[]>();
+                    List<object[]> list_Replace_Value = new List<object[]>();
+                    List<object[]> list_Value_buf = new List<object[]>();
+                    foreach (System.Data.DataRow dr in datatable_buf.Rows)
+                    {
+                        object[] src_obj = new string[LoginDataWebAPI.enum_login_data_index.GUID.GetEnumNames().Length];
+
+                        src_obj[(int)LoginDataWebAPI.enum_login_data_index.GUID] = dr[LoginDataWebAPI.enum_login_data_index.GUID.GetEnumName()].ObjectToString();
+                        src_obj[(int)LoginDataWebAPI.enum_login_data_index.Name] = dr[LoginDataWebAPI.enum_login_data_index.Name.GetEnumName()].ObjectToString();
+                        src_obj[(int)LoginDataWebAPI.enum_login_data_index.Type] = dr[LoginDataWebAPI.enum_login_data_index.Type.GetEnumName()].ObjectToString();
+                        src_obj[(int)LoginDataWebAPI.enum_login_data_index.索引] = dr[LoginDataWebAPI.enum_login_data_index.索引.GetEnumName()].ObjectToString();
+                        src_obj[(int)LoginDataWebAPI.enum_login_data_index.Group] = dr[LoginDataWebAPI.enum_login_data_index.Group.GetEnumName()].ObjectToString();
+                        src_obj[(int)LoginDataWebAPI.enum_login_data_index.Description] = dr[LoginDataWebAPI.enum_login_data_index.Description.GetEnumName()].ObjectToString();
+
+                        list_Value_buf = (from value in list_SQL_Value
+                                          where value[(int)LoginDataWebAPI.enum_login_data_index.索引].ObjectToString().StringToInt32() == src_obj[(int)LoginDataWebAPI.enum_login_data_index.索引].ObjectToString().StringToInt32()
+                                          select value).ToList();
+                        if (list_Value_buf.Count == 0)
+                        {
+
+                        }
+                        else
+                        {
+                            list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Name] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Name];
+                            list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Type] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Type];
+                            list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Group] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Group];
+                            list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Description] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Description];
+                            list_Replace_SerchValue.Add((new string[] { list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.GUID].ObjectToString() }));
+                            list_Replace_Value.Add(list_Value_buf[0]);
+                        }
+                    }
+                    this.sqL_DataGridView_login_data_index.SQL_ReplaceExtra(new string[] { LoginDataWebAPI.enum_login_data_index.GUID.GetEnumName() }, list_Replace_SerchValue, list_Replace_Value, false);
+                    this.sqL_DataGridView_login_data_index.SQL_GetAllRows(true);
+                }
+            }));
+          
+        }
+        private void RJ_Button_login_data_index_匯出_MouseDownEvent(MouseEventArgs mevent)
+        {
+            this.Invoke(new Action(delegate
+            {
+                if (this.saveFileDialog_SaveExcel.ShowDialog() == DialogResult.OK)
+                {
+                    DataTable dataTable = this.sqL_DataGridView_login_data_index.GetDataTable().DeepClone();
+                    CSVHelper.SaveFile(dataTable, this.saveFileDialog_SaveExcel.FileName);
+                }
+            }));
+         
         }
 
 
 
 
-
         #endregion
 
         #endregion
-
-  
     }
 }
