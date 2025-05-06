@@ -27,6 +27,8 @@ namespace MySQL_Login
             索引,
             Name,
             Type,
+            Group,
+            Description,
         }
         public class Class_login_data
         {
@@ -122,11 +124,14 @@ namespace MySQL_Login
             private string _索引 = "";
             private string _Name = "";
             private string _Type = "";
+            private string _Group = "";
+            private string _Description = "";
 
             public string 索引 { get => _索引; set => _索引 = value; }
             public string Name { get => _Name; set => _Name = value; }
             public string Type { get => _Type; set => _Type = value; }
-
+            public string Group { get => _Group; set => _Group = value; }
+            public string Description { get => _Description; set => _Description = value; }
 
             public bool GetTypeBool(enum_login_data_type _enum_Login_Data_Type)
             {
@@ -245,6 +250,8 @@ namespace MySQL_Login
                 class_Login_Data_Index.Name = list_value[i][(int)LoginDataWebAPI.enum_login_data_index.Name].ObjectToString();
                 class_Login_Data_Index.Type = list_value[i][(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString();
                 class_Login_Data_Index.索引 = list_value[i][(int)LoginDataWebAPI.enum_login_data_index.索引].ObjectToString();
+                class_Login_Data_Index.Group = list_value[i][(int)LoginDataWebAPI.enum_login_data_index.Group].ObjectToString();
+                class_Login_Data_Index.Description = list_value[i][(int)LoginDataWebAPI.enum_login_data_index.Description].ObjectToString();
 
                 list_class_Login_Data_Index.Add(class_Login_Data_Index);
             }

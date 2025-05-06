@@ -107,6 +107,8 @@
             this.sqL_DataGridView_login_data = new SQLUI.SQL_DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.rJ_GroupBox2 = new MyUI.RJ_GroupBox();
+            this.rJ_Lable4 = new MyUI.RJ_Lable();
+            this.comboBox_類別 = new System.Windows.Forms.ComboBox();
             this.rJ_Button_login_data_index_匯出 = new MyUI.RJ_Button();
             this.rJ_Button_login_data_index_匯入 = new MyUI.RJ_Button();
             this.rJ_Button_login_data_index_寫入 = new MyUI.RJ_Button();
@@ -117,8 +119,10 @@
             this.sqL_DataGridView_login_data_index = new SQLUI.SQL_DataGridView();
             this.saveFileDialog_SaveExcel = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog_LoadExcel = new System.Windows.Forms.OpenFileDialog();
-            this.comboBox_類別 = new System.Windows.Forms.ComboBox();
-            this.rJ_Lable4 = new MyUI.RJ_Lable();
+            this.rJ_Lable5 = new MyUI.RJ_Lable();
+            this.rJ_TextBox_login_data_index_群組 = new MyUI.RJ_TextBox();
+            this.rJ_Lable6 = new MyUI.RJ_Lable();
+            this.rJ_TextBox_login_data_index_描述 = new MyUI.RJ_TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.rJ_GroupBox1.ContentsPanel.SuspendLayout();
@@ -1169,6 +1173,10 @@
             this.rJ_GroupBox2.ContentsPanel.BorderColor = System.Drawing.Color.SkyBlue;
             this.rJ_GroupBox2.ContentsPanel.BorderRadius = 5;
             this.rJ_GroupBox2.ContentsPanel.BorderSize = 0;
+            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_TextBox_login_data_index_描述);
+            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_Lable6);
+            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_Lable5);
+            this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_TextBox_login_data_index_群組);
             this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_Lable4);
             this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.comboBox_類別);
             this.rJ_GroupBox2.ContentsPanel.Controls.Add(this.rJ_Button_login_data_index_匯出);
@@ -1203,6 +1211,32 @@
             this.rJ_GroupBox2.TitleTextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rJ_GroupBox2.TitleTexts = "資料內容";
             // 
+            // rJ_Lable4
+            // 
+            this.rJ_Lable4.BackColor = System.Drawing.Color.SkyBlue;
+            this.rJ_Lable4.BackgroundColor = System.Drawing.Color.SkyBlue;
+            this.rJ_Lable4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rJ_Lable4.BorderRadius = 5;
+            this.rJ_Lable4.BorderSize = 0;
+            this.rJ_Lable4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rJ_Lable4.ForeColor = System.Drawing.Color.White;
+            this.rJ_Lable4.Location = new System.Drawing.Point(18, 89);
+            this.rJ_Lable4.Name = "rJ_Lable4";
+            this.rJ_Lable4.Size = new System.Drawing.Size(82, 32);
+            this.rJ_Lable4.TabIndex = 14;
+            this.rJ_Lable4.Text = "類別";
+            this.rJ_Lable4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rJ_Lable4.TextColor = System.Drawing.Color.White;
+            // 
+            // comboBox_類別
+            // 
+            this.comboBox_類別.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.comboBox_類別.FormattingEnabled = true;
+            this.comboBox_類別.Location = new System.Drawing.Point(106, 88);
+            this.comboBox_類別.Name = "comboBox_類別";
+            this.comboBox_類別.Size = new System.Drawing.Size(175, 35);
+            this.comboBox_類別.TabIndex = 13;
+            // 
             // rJ_Button_login_data_index_匯出
             // 
             this.rJ_Button_login_data_index_匯出.AutoResetState = false;
@@ -1215,7 +1249,7 @@
             this.rJ_Button_login_data_index_匯出.FlatAppearance.BorderSize = 0;
             this.rJ_Button_login_data_index_匯出.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rJ_Button_login_data_index_匯出.ForeColor = System.Drawing.Color.White;
-            this.rJ_Button_login_data_index_匯出.Location = new System.Drawing.Point(598, 81);
+            this.rJ_Button_login_data_index_匯出.Location = new System.Drawing.Point(598, 85);
             this.rJ_Button_login_data_index_匯出.Name = "rJ_Button_login_data_index_匯出";
             this.rJ_Button_login_data_index_匯出.Size = new System.Drawing.Size(78, 40);
             this.rJ_Button_login_data_index_匯出.State = false;
@@ -1237,7 +1271,7 @@
             this.rJ_Button_login_data_index_匯入.FlatAppearance.BorderSize = 0;
             this.rJ_Button_login_data_index_匯入.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rJ_Button_login_data_index_匯入.ForeColor = System.Drawing.Color.White;
-            this.rJ_Button_login_data_index_匯入.Location = new System.Drawing.Point(682, 81);
+            this.rJ_Button_login_data_index_匯入.Location = new System.Drawing.Point(682, 85);
             this.rJ_Button_login_data_index_匯入.Name = "rJ_Button_login_data_index_匯入";
             this.rJ_Button_login_data_index_匯入.Size = new System.Drawing.Size(78, 40);
             this.rJ_Button_login_data_index_匯入.State = false;
@@ -1259,7 +1293,7 @@
             this.rJ_Button_login_data_index_寫入.FlatAppearance.BorderSize = 0;
             this.rJ_Button_login_data_index_寫入.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rJ_Button_login_data_index_寫入.ForeColor = System.Drawing.Color.White;
-            this.rJ_Button_login_data_index_寫入.Location = new System.Drawing.Point(766, 81);
+            this.rJ_Button_login_data_index_寫入.Location = new System.Drawing.Point(766, 85);
             this.rJ_Button_login_data_index_寫入.Name = "rJ_Button_login_data_index_寫入";
             this.rJ_Button_login_data_index_寫入.Size = new System.Drawing.Size(78, 40);
             this.rJ_Button_login_data_index_寫入.State = false;
@@ -1303,7 +1337,7 @@
             this.rJ_TextBox_login_data_index_名稱.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rJ_TextBox_login_data_index_名稱.PlaceholderText = "";
             this.rJ_TextBox_login_data_index_名稱.ShowTouchPannel = false;
-            this.rJ_TextBox_login_data_index_名稱.Size = new System.Drawing.Size(408, 30);
+            this.rJ_TextBox_login_data_index_名稱.Size = new System.Drawing.Size(217, 30);
             this.rJ_TextBox_login_data_index_名稱.TabIndex = 5;
             this.rJ_TextBox_login_data_index_名稱.TextAlgin = System.Windows.Forms.HorizontalAlignment.Left;
             this.rJ_TextBox_login_data_index_名稱.Texts = "";
@@ -1371,6 +1405,8 @@
             this.sqL_DataGridView_login_data_index.Columns.Add(((SQLUI.SQL_DataGridView.ColumnElement)(resources.GetObject("sqL_DataGridView_login_data_index.Columns1"))));
             this.sqL_DataGridView_login_data_index.Columns.Add(((SQLUI.SQL_DataGridView.ColumnElement)(resources.GetObject("sqL_DataGridView_login_data_index.Columns2"))));
             this.sqL_DataGridView_login_data_index.Columns.Add(((SQLUI.SQL_DataGridView.ColumnElement)(resources.GetObject("sqL_DataGridView_login_data_index.Columns3"))));
+            this.sqL_DataGridView_login_data_index.Columns.Add(((SQLUI.SQL_DataGridView.ColumnElement)(resources.GetObject("sqL_DataGridView_login_data_index.Columns4"))));
+            this.sqL_DataGridView_login_data_index.Columns.Add(((SQLUI.SQL_DataGridView.ColumnElement)(resources.GetObject("sqL_DataGridView_login_data_index.Columns5"))));
             this.sqL_DataGridView_login_data_index.Dock = System.Windows.Forms.DockStyle.Top;
             this.sqL_DataGridView_login_data_index.Font = new System.Drawing.Font("新細明體", 9F);
             this.sqL_DataGridView_login_data_index.ImageBox = false;
@@ -1412,31 +1448,85 @@
             this.openFileDialog_LoadExcel.DefaultExt = "txt";
             this.openFileDialog_LoadExcel.Filter = "txt File (*.txt)|*.txt;";
             // 
-            // comboBox_類別
+            // rJ_Lable5
             // 
-            this.comboBox_類別.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.comboBox_類別.FormattingEnabled = true;
-            this.comboBox_類別.Location = new System.Drawing.Point(268, 54);
-            this.comboBox_類別.Name = "comboBox_類別";
-            this.comboBox_類別.Size = new System.Drawing.Size(175, 35);
-            this.comboBox_類別.TabIndex = 13;
+            this.rJ_Lable5.BackColor = System.Drawing.Color.SkyBlue;
+            this.rJ_Lable5.BackgroundColor = System.Drawing.Color.SkyBlue;
+            this.rJ_Lable5.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rJ_Lable5.BorderRadius = 5;
+            this.rJ_Lable5.BorderSize = 0;
+            this.rJ_Lable5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rJ_Lable5.ForeColor = System.Drawing.Color.White;
+            this.rJ_Lable5.Location = new System.Drawing.Point(491, 18);
+            this.rJ_Lable5.Name = "rJ_Lable5";
+            this.rJ_Lable5.Size = new System.Drawing.Size(82, 32);
+            this.rJ_Lable5.TabIndex = 15;
+            this.rJ_Lable5.Text = "群組";
+            this.rJ_Lable5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rJ_Lable5.TextColor = System.Drawing.Color.White;
             // 
-            // rJ_Lable4
+            // rJ_TextBox_login_data_index_群組
             // 
-            this.rJ_Lable4.BackColor = System.Drawing.Color.SkyBlue;
-            this.rJ_Lable4.BackgroundColor = System.Drawing.Color.SkyBlue;
-            this.rJ_Lable4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rJ_Lable4.BorderRadius = 5;
-            this.rJ_Lable4.BorderSize = 0;
-            this.rJ_Lable4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rJ_Lable4.ForeColor = System.Drawing.Color.White;
-            this.rJ_Lable4.Location = new System.Drawing.Point(180, 55);
-            this.rJ_Lable4.Name = "rJ_Lable4";
-            this.rJ_Lable4.Size = new System.Drawing.Size(82, 32);
-            this.rJ_Lable4.TabIndex = 14;
-            this.rJ_Lable4.Text = "類別";
-            this.rJ_Lable4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rJ_Lable4.TextColor = System.Drawing.Color.White;
+            this.rJ_TextBox_login_data_index_群組.BackColor = System.Drawing.SystemColors.Window;
+            this.rJ_TextBox_login_data_index_群組.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rJ_TextBox_login_data_index_群組.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.rJ_TextBox_login_data_index_群組.BorderRadius = 0;
+            this.rJ_TextBox_login_data_index_群組.BorderSize = 2;
+            this.rJ_TextBox_login_data_index_群組.Font = new System.Drawing.Font("新細明體", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.rJ_TextBox_login_data_index_群組.ForeColor = System.Drawing.Color.DimGray;
+            this.rJ_TextBox_login_data_index_群組.Location = new System.Drawing.Point(579, 20);
+            this.rJ_TextBox_login_data_index_群組.Multiline = false;
+            this.rJ_TextBox_login_data_index_群組.Name = "rJ_TextBox_login_data_index_群組";
+            this.rJ_TextBox_login_data_index_群組.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.rJ_TextBox_login_data_index_群組.PassWordChar = false;
+            this.rJ_TextBox_login_data_index_群組.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rJ_TextBox_login_data_index_群組.PlaceholderText = "";
+            this.rJ_TextBox_login_data_index_群組.ShowTouchPannel = false;
+            this.rJ_TextBox_login_data_index_群組.Size = new System.Drawing.Size(217, 30);
+            this.rJ_TextBox_login_data_index_群組.TabIndex = 16;
+            this.rJ_TextBox_login_data_index_群組.TextAlgin = System.Windows.Forms.HorizontalAlignment.Left;
+            this.rJ_TextBox_login_data_index_群組.Texts = "";
+            this.rJ_TextBox_login_data_index_群組.UnderlineStyle = false;
+            // 
+            // rJ_Lable6
+            // 
+            this.rJ_Lable6.BackColor = System.Drawing.Color.SkyBlue;
+            this.rJ_Lable6.BackgroundColor = System.Drawing.Color.SkyBlue;
+            this.rJ_Lable6.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rJ_Lable6.BorderRadius = 5;
+            this.rJ_Lable6.BorderSize = 0;
+            this.rJ_Lable6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rJ_Lable6.ForeColor = System.Drawing.Color.White;
+            this.rJ_Lable6.Location = new System.Drawing.Point(180, 52);
+            this.rJ_Lable6.Name = "rJ_Lable6";
+            this.rJ_Lable6.Size = new System.Drawing.Size(82, 32);
+            this.rJ_Lable6.TabIndex = 17;
+            this.rJ_Lable6.Text = "描述";
+            this.rJ_Lable6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rJ_Lable6.TextColor = System.Drawing.Color.White;
+            // 
+            // rJ_TextBox_login_data_index_描述
+            // 
+            this.rJ_TextBox_login_data_index_描述.BackColor = System.Drawing.SystemColors.Window;
+            this.rJ_TextBox_login_data_index_描述.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rJ_TextBox_login_data_index_描述.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.rJ_TextBox_login_data_index_描述.BorderRadius = 0;
+            this.rJ_TextBox_login_data_index_描述.BorderSize = 2;
+            this.rJ_TextBox_login_data_index_描述.Font = new System.Drawing.Font("新細明體", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.rJ_TextBox_login_data_index_描述.ForeColor = System.Drawing.Color.DimGray;
+            this.rJ_TextBox_login_data_index_描述.Location = new System.Drawing.Point(268, 54);
+            this.rJ_TextBox_login_data_index_描述.Multiline = false;
+            this.rJ_TextBox_login_data_index_描述.Name = "rJ_TextBox_login_data_index_描述";
+            this.rJ_TextBox_login_data_index_描述.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.rJ_TextBox_login_data_index_描述.PassWordChar = false;
+            this.rJ_TextBox_login_data_index_描述.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rJ_TextBox_login_data_index_描述.PlaceholderText = "";
+            this.rJ_TextBox_login_data_index_描述.ShowTouchPannel = false;
+            this.rJ_TextBox_login_data_index_描述.Size = new System.Drawing.Size(528, 30);
+            this.rJ_TextBox_login_data_index_描述.TabIndex = 18;
+            this.rJ_TextBox_login_data_index_描述.TextAlgin = System.Windows.Forms.HorizontalAlignment.Left;
+            this.rJ_TextBox_login_data_index_描述.Texts = "";
+            this.rJ_TextBox_login_data_index_描述.UnderlineStyle = false;
             // 
             // LoginUI
             // 
@@ -1551,5 +1641,9 @@
         private MyUI.RJ_Button rJ_Button_login_data_更新;
         private MyUI.RJ_Lable rJ_Lable4;
         private System.Windows.Forms.ComboBox comboBox_類別;
+        private MyUI.RJ_TextBox rJ_TextBox_login_data_index_描述;
+        private MyUI.RJ_Lable rJ_Lable6;
+        private MyUI.RJ_Lable rJ_Lable5;
+        private MyUI.RJ_TextBox rJ_TextBox_login_data_index_群組;
     }
 }

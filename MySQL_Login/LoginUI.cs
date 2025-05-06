@@ -204,12 +204,13 @@ namespace MySQL_Login
             }
 
             this.comboBox_logindata_data.SelectedIndex = 0;
-            
 
+            rJ_TextBox_login_data_index_群組._TextChanged += RJ_TextBox_login_data_index_群組__TextChanged;
+            rJ_TextBox_login_data_index_描述._TextChanged += RJ_TextBox_login_data_index_描述__TextChanged;
 
         }
 
-
+       
 
         public List<LoginDataWebAPI.Class_login_data> Get_login_data()
         {
@@ -518,6 +519,8 @@ namespace MySQL_Login
                     src_obj[(int)LoginDataWebAPI.enum_login_data_index.Name] = dr[LoginDataWebAPI.enum_login_data_index.Name.GetEnumName()].ObjectToString();
                     src_obj[(int)LoginDataWebAPI.enum_login_data_index.Type] = dr[LoginDataWebAPI.enum_login_data_index.Type.GetEnumName()].ObjectToString();
                     src_obj[(int)LoginDataWebAPI.enum_login_data_index.索引] = dr[LoginDataWebAPI.enum_login_data_index.索引.GetEnumName()].ObjectToString();
+                    src_obj[(int)LoginDataWebAPI.enum_login_data_index.Group] = dr[LoginDataWebAPI.enum_login_data_index.Group.GetEnumName()].ObjectToString();
+                    src_obj[(int)LoginDataWebAPI.enum_login_data_index.Description] = dr[LoginDataWebAPI.enum_login_data_index.Description.GetEnumName()].ObjectToString();
 
                     list_Value_buf = (from value in list_SQL_Value
                                       where value[(int)LoginDataWebAPI.enum_login_data_index.索引].ObjectToString().StringToInt32() == src_obj[(int)LoginDataWebAPI.enum_login_data_index.索引].ObjectToString().StringToInt32()
@@ -530,6 +533,8 @@ namespace MySQL_Login
                     {
                         list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Name] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Name];
                         list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Type] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Type];
+                        list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Group] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Group];
+                        list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.Description] = src_obj[(int)LoginDataWebAPI.enum_login_data_index.Description];
                         list_Replace_SerchValue.Add((new string[] { list_Value_buf[0][(int)LoginDataWebAPI.enum_login_data_index.GUID].ObjectToString() }));
                         list_Replace_Value.Add(list_Value_buf[0]);
                     }
@@ -547,6 +552,8 @@ namespace MySQL_Login
             this.Current_login_data_index = RowValue;
             this.rJ_TextBox_login_data_index_索引號.Text = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.索引].ObjectToString();
             this.rJ_TextBox_login_data_index_名稱.Text = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Name].ObjectToString();
+            this.rJ_TextBox_login_data_index_群組.Text = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Group].ObjectToString();
+            this.rJ_TextBox_login_data_index_描述.Text = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Description].ObjectToString();
             comboBox_類別.Text = this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Type].ObjectToString();
         
         }
@@ -557,7 +564,20 @@ namespace MySQL_Login
                 this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Name] = rJ_TextBox_login_data_index_名稱.Texts;
             }
         }
-
+        private void RJ_TextBox_login_data_index_描述__TextChanged(object sender, EventArgs e)
+        {
+            if (this.Current_login_data_index != null)
+            {
+                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Group] = rJ_TextBox_login_data_index_群組.Texts;
+            }
+        }
+        private void RJ_TextBox_login_data_index_群組__TextChanged(object sender, EventArgs e)
+        {
+            if (this.Current_login_data_index != null)
+            {
+                this.Current_login_data_index[(int)LoginDataWebAPI.enum_login_data_index.Description] = rJ_TextBox_login_data_index_群組.Texts;
+            }
+        }
         private void rJ_Button_login_data_index_寫入_Click(object sender, EventArgs e)
         {
             if(this.Current_login_data_index != null)
